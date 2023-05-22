@@ -1,0 +1,278 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+	width: auto;
+}
+
+:root {
+	--theme-color: rgba(157, 167, 93, 1);
+}
+/*-------- HEADER -------- */
+.Header {
+	width: 100%;
+	height: 55px;
+	/* background-color: rgb(136, 187, 187); */
+	display: flex;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	box-shadow: 2px 2px 2px #7c7c7c;
+	position: fixed;
+	top: 0;
+	background-color: white;
+}
+
+/*---- HEADER LOGO---- */
+.Header_Logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15%;
+	font-weight: 900;
+	font-size: larger;
+	font-size: 32;
+}
+
+/*---- HEADER Navigation ---- */
+
+.Header_Navigation {
+	display: flex;
+	align-items: center;
+	padding-left: 30px;
+	flex-direction: row;
+	gap: 50px;
+	font-weight: 550;
+	font-size: 20;
+	width: 70%;
+}
+
+.Nav a {
+	text-decoration: none;
+	color: black;
+}
+
+/*---- HEADER Cart ---- */
+.Header_Cart {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	gap: 20px;
+	width: 15%;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.Header_Cart_In {
+	background-color: var(--theme-color);
+	padding: 10px 40px;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+	align-items: center;
+}
+
+/* ----- BODYYY ----- */
+
+.Body {
+	padding-top: 100px;
+	height: auto;
+	background-color: rgb(255, 255, 255);
+	display: flex;
+	justify-content: center;
+	padding-bottom: 100px;
+}
+
+.Body_Cart {
+	width: 1300px;
+	height: auto;
+	background-color: #f3f3f3;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	border-radius: 10px;
+	align-items: center;
+	box-shadow: 2px 2px 2px rgb(184, 184, 184);
+}
+
+.Body_Cart_Categories {
+	padding: 30px 0 20px 0;
+	display: flex;
+	flex-direction: row;
+	gap: 200px;
+	justify-content: center;
+	width: 1200px;
+}
+
+.Body_Cart_Items {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.ScrollDIV {
+	width: auto;
+	height: 300px;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.ScrollObj {
+	padding-right: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+/*  */
+.Body_Cart_Item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 2px;
+	background-color: #eeeeee;
+	width: 1100px;
+	gap: 200px;
+	height: 50px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px rgb(184, 184, 184);
+}
+
+.Body_Cart_Item_Quantity {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	background-color: #dadada;
+	padding: 3px 10px;
+	border-radius: 20px;
+}
+
+.Body_Cart_Item_DeleteButton {
+	background-color: #b8b8b8;
+	padding: 5px 10px;
+	border-radius: 100px;
+	color: #585858;
+}
+
+.Body_Cart_TotalOrder {
+	width: 80%;
+	padding: 20px 0 30px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: end;
+}
+
+.Body_Cart_Total {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+.Body_Cart_Order {
+	background-color: var(--theme-color);
+	padding: 10px 50px;
+	border-radius: 10px;
+}
+
+/* -------FOOTER--------- */
+
+.Footer {
+	height: 300px;
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	text-align: justify;
+	text-justify: inter-character;
+	align-items: center;
+	/* border-top: 2px rgb(190, 190, 190) solid; */
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	box-shadow: 2px -2px 5px #777777;
+}
+
+.Footer_Brand {
+	width: 1050px;
+}
+
+.Footer_Brand b {
+	font-size: 30px;
+	font-weight: 800;
+}
+
+.Footer_Contents {
+	/* align-self: center; */
+	display: flex;
+	flex-direction: row;
+	/* align-items: center; */
+	justify-content: center;
+	gap: 30px;
+	width: 1200px;
+}
+
+.Footer_Contents_Brand {
+	width: 40%;
+}
+.Footer_Contents_Denal {
+	border-left: 2px #cecece solid;
+	padding-left: 30px;
+	/* border-style: ; */
+	width: 35%;
+}
+
+.Footer_Contents_Contact {
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.Footer_Contents_Contact_Content {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	font-size: 18px;
+}
+
+.Footer_Contents_Contact_PhoneLink {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.Footer_Contents_Contact_Email {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.Footer_Contents_Social {
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.Footer_Contents_Contact_Tittle b {
+	font-size: 20px;
+}
+
+.Footer_Contents_Social_Content {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	font-size: 18px;
+}
+.Footer_Logo_Sizing {
+	font-size: 30px;
+	font-weight: 900;
+}
+
+.Footer_Contents_Denal_Tittle b {
+	font-size: 20px;
+}
+.Footer_Contents_Social_Tittle {
+	font-size: 20px;
+}
