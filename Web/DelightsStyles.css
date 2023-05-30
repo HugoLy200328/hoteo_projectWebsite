@@ -30,9 +30,15 @@
 	align-items: center;
 	justify-content: center;
 	width: 15%;
-	font-weight: 900;
+	/* font-weight: 900;
 	font-size: larger;
-	font-size: 32;
+	font-size: 32; */
+}
+.Logo_container img {
+	margin-top: 12px;
+	height: 30px;
+	width: 100px;
+	font-family: "Poppins", sans-serif;
 }
 
 /*---- HEADER Navigation ---- */
@@ -309,12 +315,16 @@
 }
 
 .Footer_Brand {
-	width: 1050px;
+	width: 1200px;
 }
-
+/* 
 .Footer_Brand b {
 	font-size: 30px;
 	font-weight: 800;
+} */
+.Footer_Brand img {
+	height: 60px;
+	width: 200px;
 }
 
 .Footer_Contents {

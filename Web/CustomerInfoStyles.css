@@ -29,9 +29,15 @@
 	align-items: center;
 	justify-content: center;
 	width: 15%;
-	font-weight: 900;
+	/* font-weight: 900;
 	font-size: larger;
-	font-size: 32;
+	font-size: 32; */
+}
+.Logo_container img {
+	margin-top: 12px;
+	height: 30px;
+	width: 100px;
+	font-family: "Poppins", sans-serif;
 }
 
 /*---- HEADER Navigation ---- */
@@ -53,25 +59,45 @@
 }
 
 /*---- HEADER Cart ---- */
-.Header_Cart {
+
+.Header_Sign_Cart {
 	display: flex;
-	align-items: center;
-	justify-content: center;
 	flex-direction: row;
 	gap: 20px;
-	width: 15%;
-	padding-left: 20px;
+	align-items: center;
+	width: auto;
 	padding-right: 20px;
+}
+
+.Sign_In_Up {
+	display: flex;
+	align-self: center;
+	justify-content: center;
+	padding: 2px 15px;
+	height: 30px;
+	background-color: var(--theme-color);
+	border-radius: 15px;
+	width: auto;
+	width: 150px;
+	font-size: 15px;
+}
+
+.Header_Sign_In b {
+	font-weight: 500;
+}
+.Header_Sign_Up b {
+	font-weight: 500;
 }
 
 .Header_Cart_In {
 	background-color: var(--theme-color);
-	padding: 10px 40px;
-	border-radius: 15px;
+	padding: 2px 20px;
+	border-radius: 100px;
 	display: flex;
 	flex-direction: row;
 	gap: 15px;
 	align-items: center;
+	justify-content: center;
 }
 
 /* ------ BODY ------ */
@@ -189,6 +215,7 @@
 }
 
 /* -------FOOTER--------- */
+
 .Footer {
 	height: 300px;
 	background-color: #ffffff;
@@ -206,12 +233,16 @@
 }
 
 .Footer_Brand {
-	width: 1050px;
+	width: 1200px;
 }
-
+/* 
 .Footer_Brand b {
 	font-size: 30px;
 	font-weight: 800;
+} */
+.Footer_Brand img {
+	height: 60px;
+	width: 200px;
 }
 
 .Footer_Contents {
