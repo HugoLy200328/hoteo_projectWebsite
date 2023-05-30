@@ -76,7 +76,7 @@
 
 /* ------ BODY ------ */
 .Body {
-	height: 1200px;
+	height: 1400px;
 	width: auto;
 	padding: 150px 0px 100px 0px;
 	display: flex;
@@ -129,14 +129,14 @@
 
 /* ---CONTENT--- */
 .Body_Contents {
-	height: 900px;
+	height: 1200px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .Body_Contents_Container {
-	height: 900px;
+	height: 1000px;
 	width: 700px;
 	display: flex;
 	flex-direction: column;
@@ -150,9 +150,13 @@
 .Body_Contents_Tittle {
 	width: 600px;
 }
+.tittleSub b {
+	font-weight: 500;
+}
 
 .Body_Contents_Tittle b {
 	font-size: 32px;
+	font-weight: 600;
 }
 
 .Body_Contents_Notes_Fill textarea {

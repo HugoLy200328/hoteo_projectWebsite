@@ -176,6 +176,9 @@
 	padding: 10px 50px;
 	border-radius: 10px;
 }
+.Body_Cart_Order b {
+	font-weight: 600;
+}
 
 /* -------FOOTER--------- */
 

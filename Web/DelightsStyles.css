@@ -24,6 +24,7 @@
 	background-color: white;
 }
 
+/*---- HEADER LOGO---- */
 .Header_Logo {
 	display: flex;
 	align-items: center;
@@ -33,6 +34,8 @@
 	font-size: larger;
 	font-size: 32;
 }
+
+/*---- HEADER Navigation ---- */
 
 .Header_Navigation {
 	display: flex;
@@ -51,25 +54,45 @@
 }
 
 /*---- HEADER Cart ---- */
-.Header_Cart {
+
+.Header_Sign_Cart {
 	display: flex;
-	align-items: center;
-	justify-content: center;
 	flex-direction: row;
 	gap: 20px;
-	width: 15%;
-	padding-left: 20px;
+	align-items: center;
+	width: auto;
 	padding-right: 20px;
+}
+
+.Sign_In_Up {
+	display: flex;
+	align-self: center;
+	justify-content: center;
+	padding: 2px 15px;
+	height: 30px;
+	background-color: var(--theme-color);
+	border-radius: 15px;
+	width: auto;
+	width: 150px;
+	font-size: 15px;
+}
+
+.Header_Sign_In b {
+	font-weight: 500;
+}
+.Header_Sign_Up b {
+	font-weight: 500;
 }
 
 .Header_Cart_In {
 	background-color: var(--theme-color);
-	padding: 10px 40px;
-	border-radius: 15px;
+	padding: 2px 20px;
+	border-radius: 100px;
 	display: flex;
 	flex-direction: row;
 	gap: 15px;
 	align-items: center;
+	justify-content: center;
 }
 
 /*-------- Body ---------*/
@@ -168,6 +191,7 @@
 
 .Products_Nav_Tittle b {
 	font-size: 32px;
+	padding-left: 10px;
 }
 
 .Products_Nav_Buttons {
@@ -185,7 +209,7 @@
 
 .Nav_Button {
 	background-color: var(--theme-color);
-	padding: 15px 60px;
+	padding: 11px 60px;
 	border-radius: 15px;
 	cursor: pointer;
 }
@@ -259,8 +283,11 @@
 	margin-top: 20px;
 	background-color: var(--theme-color);
 	width: 200px;
-	padding: 10px 20px;
+	padding: 8px 20px;
 	border-radius: 10px;
+}
+.Tea_Product_Contents_Add b {
+	font-weight: 600;
 }
 
 /* -------FOOTER--------- */
