@@ -77,8 +77,8 @@
 /* NAMEEEEEEEE */
 .Main_Content_Filling_Name {
 	display: flex;
-	flex-direction: row;
-	gap: 20px;
+	flex-direction: column;
+	gap: 5px;
 	width: 500px;
 }
 .Main_Content_Filling_FullName {
