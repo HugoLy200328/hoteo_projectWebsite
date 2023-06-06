@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
-    <link rel="stylesheet" href="./Styles.css">
+    <link rel="stylesheet" href="../Assets/CSS/Styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
@@ -123,11 +123,14 @@
             </div>
             <div class="Body_ReachUs_Contents">
                 <div class="Body_ReachUs_Contents_Map">
-                    <!-- <img src="/Assets/Pics/Map.png" alt=""> -->
+
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3556.4631244098814!2d135.63853682604218!3d34.605893826748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600126ffd7ada771%3A0xabbba0f996d8cc7b!2sOnji%20Jinja!5e1!3m2!1sen!2s!4v1685767722796!5m2!1sen!2s"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d672.9701868081964!2d133.96030784574452!3d34.55192119096038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1686039165529!5m2!1sen!2s"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+
+
                 </div>
                 <div class="Body_ReachUs_Contents_Contacts">
                     <div class="Body_ReachUs_Contents_Contacts_ContactUs Contact_Follow_Links">
@@ -230,37 +233,7 @@
             </div>
         </div>
     </div>
+    <script src="/Assets/JS/homeJS.js"> </script>
 </body>
 
 </html>
-
-<script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    // Next/previous controls
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    // Thumbnail image controls
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("Round_Button");
-        if (n > slides.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = slides.length }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-    }
-</script>
