@@ -1,0 +1,239 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+	width: auto;
+}
+:root {
+	--theme-color: rgba(157, 167, 93, 1);
+}
+/* Animations */
+
+/*-------- HEADER -------- */
+.Header {
+	width: 100%;
+	height: 55px;
+	/* background-color: rgb(136, 187, 187); */
+	display: flex;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	box-shadow: 2px 2px 2px #7c7c7c;
+	position: fixed;
+	top: 0;
+	background-color: white;
+}
+
+/*---- HEADER LOGO---- */
+.Header_Logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15%;
+	/* font-weight: 900;
+	font-size: larger;
+	font-size: 32; */
+}
+.Logo_container img {
+	margin-top: 12px;
+	height: 30px;
+	width: 100px;
+	font-family: "Poppins", sans-serif;
+}
+
+/*---- HEADER Navigation ---- */
+
+.Header_Navigation {
+	display: flex;
+	align-items: center;
+	padding-left: 30px;
+	flex-direction: row;
+	gap: 50px;
+	font-weight: 550;
+	font-size: 20;
+	width: 70%;
+}
+
+.Nav a {
+	text-decoration: none;
+	color: black;
+}
+
+/*---- HEADER Cart ---- */
+
+.Header_Sign_Cart {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	align-items: center;
+	width: auto;
+	padding-right: 20px;
+}
+
+.Sign_In_Up {
+	width: 120px;
+	display: flex;
+	align-self: center;
+	justify-content: center;
+	padding: 2px 10px;
+	height: 30px;
+	background-color: var(--theme-color);
+	border-radius: 15px;
+	font-size: 15px;
+}
+
+.Header_Sign_In b {
+	font-weight: 500;
+}
+.Header_Sign_Up b {
+	font-weight: 500;
+}
+
+.Header_Cart_In {
+	height: 30px;
+	background-color: var(--theme-color);
+	padding: 6px 20px 2px 20px;
+	border-radius: 100px;
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+	align-items: center;
+	justify-content: center;
+	/* font-weight: 500; */
+}
+/* ---------------------BODYYYYYYYYYYYYYYYYY----------------- */
+
+.Body {
+	height: auto;
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-top: 80px;
+	padding-bottom: 30px;
+}
+
+.feedbackForm {
+	height: auto;
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.feedbackForm_Container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.feedbackForm_Container iframe {
+	width: 1600px;
+	height: 1000px;
+}
+
+/* -------FOOTER--------- */
+
+.Footer {
+	height: 300px;
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	text-align: justify;
+	text-justify: inter-character;
+	align-items: center;
+	/* border-top: 2px rgb(190, 190, 190) solid; */
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	box-shadow: 2px -2px 5px #777777;
+}
+
+.Footer_Brand {
+	width: 1200px;
+}
+/* 
+.Footer_Brand b {
+	font-size: 30px;
+	font-weight: 800;
+} */
+.Footer_Brand img {
+	height: 60px;
+	width: 200px;
+}
+
+.Footer_Contents {
+	/* align-self: center; */
+	display: flex;
+	flex-direction: row;
+	/* align-items: center; */
+	justify-content: center;
+	gap: 30px;
+	width: 1200px;
+}
+
+.Footer_Contents_Brand {
+	width: 40%;
+}
+.Footer_Contents_Denal {
+	border-left: 2px #cecece solid;
+	padding-left: 30px;
+	/* border-style: ; */
+	width: 35%;
+}
+
+.Footer_Contents_Contact {
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.Footer_Contents_Contact_Content {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	font-size: 18px;
+}
+
+.Footer_Contents_Contact_PhoneLink {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.Footer_Contents_Contact_Email {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.Footer_Contents_Social {
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.Footer_Contents_Contact_Tittle b {
+	font-size: 20px;
+}
+
+.Footer_Contents_Social_Content {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	font-size: 18px;
+}
+.Footer_Logo_Sizing {
+	font-size: 30px;
+	font-weight: 900;
+}
+
+.Footer_Contents_Denal_Tittle b {
+	font-size: 20px;
+}
+.Footer_Contents_Social_Tittle {
+	font-size: 20px;
+}
