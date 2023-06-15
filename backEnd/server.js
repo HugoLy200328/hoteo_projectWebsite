@@ -565,9 +565,14 @@ app.post('/Admin/ProductManager/EditProduct', (req, res) => {
 });
 // Route handler cho nút thêm sản phẩm cho trang Product Manager
 app.post('/Admin/ProductManager/AddProduct', (req, res) => {
-    // Lấy thông tin sản phẩm từ yêu cầu
     const { productName, description, price } = req.body;
-    // Thêm sản phẩm vào bảng "Products"
+
+    // Check if all required information is provided
+    if (!productName || !description || !price) {
+        return res.status(400).json({ error: 'Vui lòng nhập đủ thông tin sản phẩm.' });
+    }
+
+    // Add the product to the database
     const insertQuery = 'INSERT INTO Products (product_name, description, price) VALUES (?, ?, ?)';
     connection.query(insertQuery, [productName, description, price], (error, results) => {
         if (error) {
@@ -575,10 +580,9 @@ app.post('/Admin/ProductManager/AddProduct', (req, res) => {
             return res.status(500).json({ error: 'Lỗi máy chủ' });
         }
 
-        // Điều hướng đến trang "ProductManager" sau khi thêm thành công
+        // Redirect to the product manager page after successful addition
         res.redirect('/Admin/ProductManager');
     });
-});
 
 // Route handler cho trang "UsersInformation"
 app.get('/Admin/UsersInformation', (req, res) => {
