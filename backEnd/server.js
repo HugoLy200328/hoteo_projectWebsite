@@ -583,7 +583,7 @@ app.post('/Admin/ProductManager/AddProduct', (req, res) => {
         // Redirect to the product manager page after successful addition
         res.redirect('/Admin/ProductManager');
     });
-
+});
 // Route handler cho trang "UsersInformation"
 app.get('/Admin/UsersInformation', (req, res) => {
     // Truy vấn danh sách người dùng từ bảng "Users"
