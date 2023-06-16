@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
     port: 3306,
     user: 'avolovebot123',
     password: 'vinamilk',
-    database: 'TiemTra'
+    database: 'Hoteo'
 });
 // Kết nối tới cơ sở dữ liệu MySQL
 connection.connect((error) => {
@@ -25,7 +25,7 @@ connection.connect((error) => {
 // Xuất dự liệu sản phẩm
 app.get('/Delights', (req, res) => {
     // Truy vấn cơ sở dữ liệu để lấy thông tin các sản phẩm
-    const query = 'SELECT product_name, price, description FROM Products';
+    const query = 'SELECT product_name, price, description, moredescription FROM Products';
 
     connection.query(query, (error, results) => {
         if (error) {
@@ -79,10 +79,10 @@ app.get('/Delights/add-to-cart/:productId', (req, res) => {
 
 // Register user
 app.post('/register', (req, res) => {
-    const { username, password, confirmpassword } = req.body;
+    const { username,phonenumber, password, confirmpassword } = req.body;
 
     // Kiểm tra xem người dùng đã bỏ trống trường thông tin nào hay không
-    if (!username || !password || !confirmpassword) {
+    if (!username||!phonenumber || !password || !confirmpassword) {
         return res.status(400).json({ error: 'Vui lòng điền đầy đủ thông tin' });
     }
 
@@ -117,8 +117,8 @@ app.post('/register', (req, res) => {
             }
 
             // Thêm người dùng mới vào cơ sở dữ liệu
-            const insertUserQuery = 'INSERT INTO Users (username, password, role) VALUES (?, ?, ?)';
-            db.query(insertUserQuery, [username, hashedPassword, 'customer'], (err, result) => {
+            const insertUserQuery = 'INSERT INTO Users (username, phonenumber, password, role) VALUES (?, ?, ?)';
+            db.query(insertUserQuery, [username,phonenumber, hashedPassword, 'customer'], (err, result) => {
                 if (err) {
                     console.error('Lỗi khi thêm người dùng vào cơ sở dữ liệu:', err);
                     return res.status(500).json({ error: 'Lỗi máy chủ nội bộ' });
@@ -549,11 +549,11 @@ app.post('/Admin/ProductManager/DeleteProduct', (req, res) => {
 // Route handler cho nút sửa sản phẩm trên trang Product Manager
 app.post('/Admin/ProductManager/EditProduct', (req, res) => {
     // Lấy thông tin sản phẩm từ yêu cầu
-    const { productId, productName, description, price } = req.body;
+    const { productId, productName, description, price, moredescription } = req.body;
 
     // Cập nhật thông tin sản phẩm trong bảng "Products"
-    const updateQuery = 'UPDATE Products SET product_name = ?, description = ?, price = ? WHERE product_id = ?';
-    connection.query(updateQuery, [productName, description, price, productId], (error, results) => {
+    const updateQuery = 'UPDATE Products SET product_name = ?, description = ?, price = ?, moredescription = ? WHERE product_id = ?';
+    connection.query(updateQuery, [productName, description, price, moredescription, productId], (error, results) => {
         if (error) {
             console.error('Lỗi khi cập nhật thông tin sản phẩm:', error);
             return res.status(500).json({ error: 'Lỗi máy chủ' });
@@ -565,7 +565,7 @@ app.post('/Admin/ProductManager/EditProduct', (req, res) => {
 });
 // Route handler cho nút thêm sản phẩm cho trang Product Manager
 app.post('/Admin/ProductManager/AddProduct', (req, res) => {
-    const { productName, description, price } = req.body;
+    const { productName, description, price, moredescription } = req.body;
 
     // Check if all required information is provided
     if (!productName || !description || !price) {
@@ -573,8 +573,8 @@ app.post('/Admin/ProductManager/AddProduct', (req, res) => {
     }
 
     // Add the product to the database
-    const insertQuery = 'INSERT INTO Products (product_name, description, price) VALUES (?, ?, ?)';
-    connection.query(insertQuery, [productName, description, price], (error, results) => {
+    const insertQuery = 'INSERT INTO Products (product_name, description, price, moredescription) VALUES (?, ?, ?, ?)';
+    connection.query(insertQuery, [productName, description, price, moredescription], (error, results) => {
         if (error) {
             console.error('Lỗi khi thêm sản phẩm:', error);
             return res.status(500).json({ error: 'Lỗi máy chủ' });
