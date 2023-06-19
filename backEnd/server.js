@@ -4,6 +4,15 @@ const app = express();
 const path = require('path');
 const bcrypt = require('bcrypt');
 
+// Cài đặt Session
+const session = require('express-session');
+
+app.use(session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: true
+}));
+
 // Cấu hình kết nối tới cơ sở dữ liệu MySQL
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
@@ -133,7 +142,7 @@ app.post('/register', (req, res) => {
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
-    // Check if the user exists
+    // Kiểm tra người dùng có tồn tại hay không
     const sql = 'SELECT * FROM Users WHERE username = ?';
     db.query(sql, [username], (err, results) => {
         if (err) {
@@ -149,7 +158,7 @@ app.post('/login', (req, res) => {
 
         const user = results[0];
 
-        // Compare the password
+        // So sánh mật khẩu
         bcrypt.compare(password, user.password, (err, isMatch) => {
             if (err) {
                 console.error('Error comparing passwords:', err);
@@ -162,18 +171,35 @@ app.post('/login', (req, res) => {
                 return;
             }
 
-            // Redirect to appropriate page based on user role
+            // Lưu thông tin người dùng vào session
+            req.session.user_id = user.user_id;
+            req.session.username = user.username;
+            req.session.role = user.role;
+
+            // Chuyển hướng người dùng dựa trên vai trò
             if (user.role === 'admin') {
-                res.redirect('/Admin/AdminHome');
-                res.send('Đăng nhập thành công. Chào mừng bạn đến trang admin!');
+                res.redirect('/admin');
+                return;
             } else if (user.role === 'customer') {
                 res.redirect('/Delights');
-                res.send('Đăng nhập thành công. Chào mừng bạn đến trang mua hàng!');
+                return;
             } else {
                 res.status(401).json({ error: 'Invalid role' });
+                return;
             }
         });
     });
+});
+
+// Route handler cho trang "Logout"
+app.get('/logout', (req, res) => {
+    // Xóa thông tin người dùng từ session 
+    req.session.userId = null;
+    req.session.username = null;
+    req.session.role = null;
+
+    // Chuyển hướng người dùng về trang đăng nhập
+    res.redirect('/login');
 });
 
 // Route handler cho trang "PacketInformation"
