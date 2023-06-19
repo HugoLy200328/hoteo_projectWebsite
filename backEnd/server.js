@@ -630,18 +630,24 @@ app.post('/Admin/ProductManager/AddProduct', (req, res) => {
 });
 // Route handler cho trang "UsersInformation"
 app.get('/Admin/UsersInformation', (req, res) => {
-    // Truy vấn danh sách người dùng từ bảng "Users"
-    const selectQuery = 'SELECT * FROM Users';
+    // Truy vấn danh sách người dùng và số lượng order từ bảng "Users" và "Orders"
+    const selectQuery = `
+        SELECT Users.*, COUNT(Orders.user_id) AS orderCount
+        FROM Users
+        LEFT JOIN Orders ON Users.user_id = Orders.user_id
+        GROUP BY Users.user_id
+    `;
     connection.query(selectQuery, (error, results) => {
         if (error) {
             console.error('Lỗi khi truy vấn danh sách người dùng:', error);
             return res.status(500).json({ error: 'Lỗi máy chủ' });
         }
 
-        // Hiển thị trang "UsersInformation" với danh sách người dùng dưới dạng JSON
+        // Hiển thị trang "UsersInformation" với danh sách người dùng và số lượng order
         res.status(200).json({ users: results });
     });
 });
+
 // Route handler cho nút xóa người dùng trên trang UserInformation
 app.post('/Admin/UsersInformation/DeleteUser', (req, res) => {
     // Lấy user_id từ yêu cầu
