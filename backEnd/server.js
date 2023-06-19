@@ -45,6 +45,24 @@ app.get('/Delights', (req, res) => {
         }
     });
 });
+// nhấn nút cart
+app.get('/Delights/cart', isAuthenticated, (req, res) => {
+    // Khi đến đây, người dùng đã đăng nhập
+    // Chuyển hướng đến trang "PacketInformation"
+    res.redirect('/PacketInformation');
+});
+
+// Middleware để kiểm tra xem người dùng đã đăng nhập hay chưa
+function isAuthenticated(req, res, next) {
+    if (req.session && req.session.userId) {
+        // Người dùng đã đăng nhập
+        next(); // Tiếp tục xử lý route handler tiếp theo
+    } else {
+        // Người dùng chưa đăng nhập
+        res.redirect('/login'); // Chuyển hướng đến trang đăng nhập
+    }
+}
+
 // Nhấn nút add sản phẩm vào cart
 app.get('/Delights/add-to-cart/:productId', (req, res) => {
     // Get the product ID from the request params
