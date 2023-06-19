@@ -424,10 +424,10 @@ app.get('/PacketInformation', (req, res) => {
         });
     });
 });
-// Trang CustomerInformation
-app.post('/CustomerInformation', (req, res) => {
+app.post('/CustomerInformation', isAuthenticated, (req, res) => {
     // Lấy thông tin khách hàng từ yêu cầu
     const { fullName, phoneNumber, email, address, district, province, notes } = req.body;
+    const userId = req.session.userId; // Lấy user_id từ session
 
     // Kiểm tra xem các trường bắt buộc đã được nhập đầy đủ hay chưa
     if (!fullName || !phoneNumber || !email || !address || !district || !province) {
@@ -438,8 +438,8 @@ app.post('/CustomerInformation', (req, res) => {
     const orderDate = new Date();
 
     // Lưu thông tin khách hàng vào bảng "orders" trong cơ sở dữ liệu
-    const insertQuery = 'INSERT INTO orders (full_name, phone_number, email, address, district, province, notes, order_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-    connection.query(insertQuery, [fullName, phoneNumber, email, address, district, province, notes, orderDate], (error, results) => {
+    const insertQuery = 'INSERT INTO orders (user_id, full_name, phone_number, email, address, district, province, notes, order_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    connection.query(insertQuery, [userId, fullName, phoneNumber, email, address, district, province, notes, orderDate], (error, results) => {
         if (error) {
             console.error('Lỗi khi lưu thông tin khách hàng:', error);
             return res.status(500).json({ error: 'Lỗi máy chủ' });
@@ -681,7 +681,9 @@ app.get('/Admin/AdminInfor', (req, res) => {
 // Nút đổi mật khẩu trong "AdminInfor"
 app.post('/Admin/AdminInfor/ChangePassword', (req, res) => {
     // Lấy thông tin từ yêu cầu
-    const { userId, currentPassword, newPassword, confirmPassword } = req.body;
+    const { currentPassword, newPassword, confirmPassword } = req.body;
+    // Lấy user_id từ session
+    const user_id = req.session.user_id;
 
     // Kiểm tra xem mật khẩu mới và xác nhận mật khẩu có trùng nhau không
     if (newPassword !== confirmPassword) {
