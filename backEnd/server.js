@@ -194,17 +194,7 @@ app.post('/login', (req, res) => {
             req.session.username = user.username;
             req.session.role = user.role;
 
-            // Chuyển hướng người dùng dựa trên vai trò
-            if (user.role === 'admin') {
-                res.redirect('/admin');
-                return;
-            } else if (user.role === 'customer') {
-                res.redirect('/Delights');
-                return;
-            } else {
-                res.status(401).json({ error: 'Invalid role' });
-                return;
-            }
+            res.json({role});
         });
     });
 });
